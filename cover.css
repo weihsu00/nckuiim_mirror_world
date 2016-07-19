@@ -1,21 +1,35 @@
 /*base structure
 */
 html,body{
-     height: 100%;
+     min-height: 100%;
+     width: 100%;
+     
+     font-size: 12px;
 }
 
 .wrapper{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100%;
 }
+.cover{
+     height:90vh;
+     display: flex;
+     flex-direction:row;
+}
 .cover-left{    
+
     width:50%;
+    height:100%;
     vertical-align: center;
     text-align: center;
 }
 .cover-right{
+
     width:50%;
+    height:100%;
+    vertical-align: center;
+    text-align: center;
 }
 .inner-cover{
     display: flex;
@@ -23,7 +37,86 @@ html,body{
     align-items: center;
     height: 100%;
 }
+.form{
+    font-size: 16px;
+    width:100%;
 
-.form-group{
-    padding: 0px 30px 30px 0px;
 }
+.form-group{
+    padding: 0px 20px 20px 0px;
+    margin: 0px 0px -5px 0px;
+}   
+.mastfoot{
+    position: fixed;
+    bottom:0px;
+    background-color: #222;
+    width: 100%;
+    color:#FFFFFF;
+    text-align: center;
+}
+
+input[type="text"],input[type="password"]{
+    background-color: #fff;
+    padding: 6px 12px 6px 12px;
+    background-image: none;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    font-size: 20px;
+    width:80%;
+    line-height: 1.42857;
+    margin: 5px;
+    box-shadow: inset 0px 3px 3px rgba(20%,20%,40%,0.5);
+}
+#label_UserName{
+    font-size:20px !important;   
+    font-weight: bold;
+}
+#label_password{
+    font-size: 20px !important;
+    font-weight:bold;
+}
+#remember_me{
+    display: block;
+}
+.login-form-button{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+63,7db9e8+100 */
+    background-color:#3377ff;
+    color:#FFFFFF;
+    border-radius: 0.5rem;   
+    margin-top: 0.25rem;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+    height: 3rem;
+    padding: 0.75rem 1rem;
+    padding-top: 0.75rem;
+    padding-right: 1rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    margin-top: -0.5rem;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+    width: 20%; 
+    font-size: 20px;
+    font-weight: bolder;
+    text-shadow: 0px 0px 3px rgba(255,255,255,0.7);
+   } 
+   .login_button{
+        margin-top: -2px;
+        order:2;
+        width:90%;
+        display: flex;
+        justify-content: flex-end;
+   }
+   .checkbox{
+        
+        padding: 0px 0px 0px 85px;
+        margin-left: 10px;
+        display: flex;
+        justify-content: flex-start;
+   }
+   input[type="checkbox"]{
+        width: 20px;
+        height: 20px;
+   }
+   
