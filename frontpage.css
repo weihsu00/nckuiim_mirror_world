@@ -1,0 +1,127 @@
+/*base structure*/
+
+* {
+	font-size: 12px;
+}
+html,body{
+	width:100%;
+	height:100%;
+	text-align: left;
+}
+
+body {
+	flex-direction: column;
+	font-family: 標楷體;
+	overflow-x: hidden;
+}
+/*head*/
+.Head {
+	position: fixed;
+	width: 100%;
+	height: 20px;
+	text-align: right;
+	margin:0px 5px 0px 5px;
+}
+.Head a{
+	padding-right: 20px;
+}
+
+.container{
+	display: flex;
+	height:100%;
+	width:990px;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+
+}
+
+.Masthead {
+	top: 21px;
+	position: fixed;	
+	width: 100%;
+	height: 53px;
+
+	
+}
+
+
+.Masthead div{
+	font-family: 新細明體;
+}
+
+.menu_navbar{
+	height:53px;
+	width: 990px;
+}
+.Innercover {
+	width: 100%;
+}
+
+ul li{
+	display: inline;
+}
+
+.Workremind{
+	padding-top: 100px;
+	margin: auto;
+	margin-top: 5px;
+	width: 900px;
+	height: auto;
+}
+table{
+	border-collapse: collapse;
+}
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+.Monthlytask {
+	position: relative;
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 900px;
+	height: 340px;
+}
+
+.Mastfoot{
+    position: fixed;
+    bottom:0px;
+    background-color: #222;
+    width: 100%;
+    color:#FFFFFF;
+    text-align: center;
+
+}
+
+.Mastfoot p {
+	text-align: center; 
+	font-family: arial;
+	color:#ffffff;
+}
+.content{
+	padding:20px;
+}
+#instruct_form{
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+
+}
+.fl-name{
+	width:60px;
+	height: 40px;
+	text-align: center;
+
+}
+.fl-column1{
+	
+	display:inline-flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+table.workremind_output{
+	margin: 5px;
+}

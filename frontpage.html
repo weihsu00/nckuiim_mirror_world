@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name=description content="">
+    <meta name=author content="WeiHsu">
+    <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
+    <title>妙華如發訂單系統-首頁</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel=stylesheet>
+    <link href="normalize.css" rel=stylesheet>
+    <link href="frontpage.css" rel=stylesheet>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!--標頭包含使用者資訊以及選單按鈕-->
+    <div class="Head">
+        <!--使用者資訊-->
+        <a href="">登出</a>
+    </div>
+    <div class="container">
+        <div class="Masthead">
+            <!--選單按鈕-->
+            <div class="menu_navbar">
+                <ul class="menu-navigation">
+                    <li class=""><a href="">首頁</a></li>
+                    <li class=""><a href="">草稿匣</a></li>
+                    <li class=""><a href="">待審匣</a></li>
+                    <li class=""><a href="">送件匣</a></li>
+                    <li class=""><a href="">已到貨-尾款未收</li>
+					<li class=""><a href="">已完成</a></li>
+                    <li class=""><a href="">訂單統計</a></li>
+                    <li class=""><a href="">列印功能</a></li>
+                    <li class=""><a href="">訂單搜尋</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="Innercover">
+            <!--交辦事項及每月目標-->
+            <div class="Workremind">
+                <h3>交辦事項</h3>
+                <div class="content">
+                    <form id="instruct_form" class="form" name="workremind_form">
+                        <div class="fl-column1">
+                            <div class="fl-name">
+                                <label>標題</label>
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" id="title" placeholder="Text input">
+                            </div>
+                            <div class="fl-name">
+                                <label>受文者</label>
+                            </div>
+                            <div>
+                                <select>
+                                    <option value="0">請選擇受文者
+                                    </option>
+                                    <option value="1">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="fl-name">
+                                <label>類型</label>
+                            </div>
+                            <div>
+                                <select>
+                                    <option value="0">請選擇類型
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="fl-name">
+                                <label>指定完成日</label>
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" name="delivery_date">
+                            </div>
+                        </div>
+                        <div>
+                        	<p>內文</p>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </form>
+                    <table class="workremind_output">
+                    <thead>
+                        <tr>
+                            <th>狀態</th>
+                            <th>主旨</th>
+                            <th>類型</th>
+                            <th>指定完成日</th>
+                            <th>交待人</th>
+                            <th>受文者</th>
+                            <th>附加檔案</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                
+            </div>
+            <div class="Monthlytask">
+                <h3>每月目標</h3>
+            </div>
+        </div>
+        
+    </div>
+    <div class="Mastfoot">
+            <!--置底文字-->
+            <p> Copyright© 2016 Mirrorworld Inc. Aii Rights Reserved. </p>
+        </div>
+</body>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+</html>
