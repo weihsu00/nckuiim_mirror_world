@@ -2,7 +2,7 @@
 Project of MW web database.
 Using HTML, PHP + MySQL on Linux.
 
-/*
+<!--
 
 網頁統一格式
 
@@ -58,7 +58,9 @@ Using HTML, PHP + MySQL on Linux.
 <script src="http://code.jquery.com/jquery.js"></script>
 
 </html>
-*/
+
+
+-->
 以下為CSS的部分
 /*基本架構*/
 
