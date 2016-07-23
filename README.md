@@ -2,10 +2,9 @@
 Project of MW web database.
 Using HTML, PHP + MySQL on Linux.
 
+
+網頁統一格式 
 <!--
-
-網頁統一格式
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
