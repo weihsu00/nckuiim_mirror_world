@@ -2,7 +2,7 @@
 Project of MW web database.
 Using HTML, PHP + MySQL on Linux.
 
-
+/*
 
 網頁統一格式
 
@@ -19,7 +19,7 @@ Using HTML, PHP + MySQL on Linux.
     <title>妙華如發訂單系統-首頁</title>
     <link href="bootstrap/css/bootstrap.min.css" rel=stylesheet>
     <link href="normalize.css" rel=stylesheet>
-    <link href="frontpage.css" rel=stylesheet>
+    <link href="" rel=stylesheet> /*引號內寫所引用之css檔之位置與name*/
     <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -58,7 +58,7 @@ Using HTML, PHP + MySQL on Linux.
 <script src="http://code.jquery.com/jquery.js"></script>
 
 </html>
-
+*/
 以下為CSS的部分
 /*基本架構*/
 
