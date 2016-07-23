@@ -6,6 +6,7 @@
 html,body{
 	width:100%;
 	height:100%;
+	text-align: left;
 }
 
 body {
@@ -62,11 +63,11 @@ ul li{
 }
 
 .Workremind{
-	padding-top: 50px;
+	padding-top: 100px;
 	margin: auto;
 	margin-top: 5px;
 	width: 900px;
-	height: 340px;
+	height: auto;
 }
 table{
 	border-collapse: collapse;
@@ -77,6 +78,7 @@ td, th {
   text-align: left;
 }
 .Monthlytask {
+	position: relative;
 	margin: auto;
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -98,4 +100,28 @@ td, th {
 	text-align: center; 
 	font-family: arial;
 	color:#ffffff;
+}
+.content{
+	padding:20px;
+}
+#instruct_form{
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+
+}
+.fl-name{
+	width:60px;
+	height: 40px;
+	text-align: center;
+
+}
+.fl-column1{
+	
+	display:inline-flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+table.workremind_output{
+	margin: 5px;
 }
