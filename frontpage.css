@@ -1,4 +1,4 @@
-/*base structure*/
+/*基本架構*/
 
 * {
 	font-size: 12px;
@@ -14,7 +14,8 @@ body {
 	font-family: 標楷體;
 	overflow-x: hidden;
 }
-/*head*/
+
+/*body內的部分*/
 .Head {
 	position: fixed;
 	width: 100%;
@@ -56,12 +57,15 @@ body {
 }
 .Innercover {
 	width: 100%;
+	padding-top: 50px;
 }
 
 ul li{
 	display: inline;
 }
 
+
+/*請將css內容寫在下面*/
 .Workremind{
 	padding-top: 100px;
 	margin: auto;
@@ -76,30 +80,6 @@ td, th {
   border: 1px solid #999;
   padding: 0.5rem;
   text-align: left;
-}
-.Monthlytask {
-	position: relative;
-	margin: auto;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	width: 900px;
-	height: 340px;
-}
-
-.Mastfoot{
-    position: fixed;
-    bottom:0px;
-    background-color: #222;
-    width: 100%;
-    color:#FFFFFF;
-    text-align: center;
-
-}
-
-.Mastfoot p {
-	text-align: center; 
-	font-family: arial;
-	color:#ffffff;
 }
 .content{
 	padding:20px;
@@ -124,4 +104,31 @@ td, th {
 }
 table.workremind_output{
 	margin: 5px;
+}
+
+.Monthlytask {
+	position: relative;
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 900px;
+	height: 340px;
+}
+
+
+/*Mastfoot*/
+.Mastfoot{
+    position: fixed;
+    bottom:0px;
+    background-color: #222;
+    width: 100%;
+    color:#FFFFFF;
+    text-align: center;
+
+}
+
+.Mastfoot p {
+	text-align: center; 
+	font-family: arial;
+	color:#ffffff;
 }
