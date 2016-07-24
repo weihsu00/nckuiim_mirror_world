@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name=description content="">
+    <meta name=author content="">
+    <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
+    <title>妙華如發訂單系統-首頁</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel=stylesheet>
+    <link href="normalize.css" rel=stylesheet>
+    <link href="draftpage.css" rel=stylesheet>
+</head>
+
+<body>
+    <!--標頭包含使用者資訊以及選單按鈕-->
+    <div class="Head">
+        <!--使用者資訊-->
+        <a href="">登出</a>
+    </div>
+    <div class="container">
+        <div class="Masthead">
+            <!--選單按鈕-->
+            <div class="menu_navbar">
+                <ul class="menu-navigation">
+                    <li class=""><a href="">首頁</a></li>
+                    <li class=""><a href="">草稿匣</a></li>
+                    <li class=""><a href="">待審匣</a></li>
+                    <li class=""><a href="">送件匣</a></li>
+                    <li class=""><a href="">已到貨-尾款未收</li>
+                    <li class=""><a href="">已完成</a></li>
+                    <li class=""><a href="">訂單統計</a></li>
+                    <li class=""><a href="">列印功能</a></li>
+                    <li class=""><a href="">訂單搜尋</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="Innercover">
+            <!--網頁內文請寫在這-->
+            <div>
+                <h3 style="font-weight:700">訂單 草稿夾</h3>
+            </div>
+            <div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">建立草稿訂單</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">建立新訂單</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="newdraft_form" name="newdraft_form">
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>訂單名稱</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <input type="text" name="orderName">
+                                                </div>
+                                            </div>
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>預定交貨日</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <input type="datetime" name="orderDate">
+                                                </div>
+                                            </div>
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>套量人員</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <input type="text" name="orderName">
+                                                </div>
+                                            </div>
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>套量單位</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <input type="text" name="orderDate">
+                                                </div>
+                                            </div>
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>客戶聯絡人</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <input type="text" name="orderDate">
+                                                </div>
+                                            </div>
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>聯絡人電話</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <input type="text" name="orderDate">
+                                                </div>
+                                            </div>
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>單一窗口收款總售價</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <input type="text" name="orderDate">
+                                                </div>
+                                            </div>
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>單一窗口收款總訂金</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <input type="text" name="orderDate">
+                                                </div>
+                                            </div>
+                                            <div class="nf-1">
+                                                <div class="nf-2">
+                                                    <label>單一窗口收款方式</label>
+                                                </div>
+                                                <div class="nf-3">
+                                                    <div>
+                                                        <select>
+                                                            <option value="0">現金
+                                                            </option>
+                                                            <option value="1">滙款
+                                                            </option>
+                                                            <option value="2">支票
+                                                            </option>
+                                                            <option value="3">刷卡
+                                                            </option>
+                                                            <option value="4">其他
+                                                            </option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-default btn-sm" onClick="">回收桶</button>
+                    
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
+    <div class="Mastfoot">
+        <!--置底文字-->
+        <p> Copyright© 2016 Mirrorworld Inc. Aii Rights Reserved. </p>
+    </div>
+</body>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+</html>
