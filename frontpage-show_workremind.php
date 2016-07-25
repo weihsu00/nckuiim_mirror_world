@@ -4,28 +4,28 @@ if (isset($_POST["send"])) {  // 是否是表單送回
     $title = $_POST["title"];
     $reciever = $_POST["reciever"];
     $reciever_result="";
-    switch ($type) {
+    switch ($reciever) {
             case 0:
-                $type_result=0;
+                $reciever_result="0";
                 break;
             case 1:
-                $type_result="1";
+                $reciever_result="1";
                 break;
             default:
-                $type_result=0;
+                $reciever_result="0";
                 break;
         }
     $type = (int)$_POST["type"];
     $type_result="";
         switch ($type) {
             case 0:
-                $type_result=0;
+                $type_result="0";
                 break;
             case 1:
                 $type_result="1";
                 break;
             default:
-                $type_result=0;
+                $type_result="0";
                 break;
         }
     $delivery_date = $_POST["delivery_date"];
@@ -34,18 +34,18 @@ if (isset($_POST["send"])) {  // 是否是表單送回
         $error = "標題不可是空白<br/>";
     }
     else { 
-        if ($reciever) { // 欄位沒填
+        if ($reciever_result=="0") // 欄位沒填
         $error .= "受文者不可是空白<br/>";
-    } 
-    else {
-        if 
-    }
-    else { // 表單處理
-        $db = mysqli_connect("localhost", "", "");
+        else {
+            if ($type_result=="0")
+            $error .= "類型不可是空白<br/>";    
+        else { // 表單處理
+        $db = @mysqli_connect("localhost", "root", "xxxg00w0");
         mysqli_select_db($db, "mirrorworld"); // 選擇資料庫
         $sql = "INSERT INTO instruct" .
-        "(Title, Account_ID_Reciever, Type_ID, Delivery Date, Content)" .
+        "(Title, Account_ID_Reciever, Type_ID, Delivery_Date, Content)" .
         "VALUES ('$title', '$reciever_result', '$type_result', 'delivery_date', '$content')";
+    }
         if (!mysqli_query($db, $sql)) { // 執行SQL指令
             $result = "新增記錄失敗...<br/>" . mysqli_error($db);
         }
@@ -59,8 +59,8 @@ else {  // 初始表單欄位值
     $type = ""; $delivery_date = ""; $content = "";
 } 
 
-function show_work_remind(){
-    $db = mysqli_connect("localhost", "", "");
+/*function show_work_remind(){
+    $db = mysqli_connect("localhost", "root", "xxxg00w0");
 if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
 mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
     die("錯誤: 無法選擇資料庫!" . mysqli_error($db));
@@ -68,7 +68,7 @@ $sql = "SELECT * FROM instruct";
 $rows = mysqli_query($db, $sql); // 執行SQL查詢              
 $num = mysqli_num_rows($rows); // 取得記錄數
 mysqli_close($db); // 關閉伺服器連接
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -116,7 +116,7 @@ mysqli_close($db); // 關閉伺服器連接
             <div class="Workremind">
                 <h3>交辦事項</h3>
                 <div class="content">
-                    <form id="instruct_form" class="form" name="workremind_form">
+                    <form id="instruct_form" class="form" name="workremind_form" action="">
                         <div class="fl-column1">
                             <div class="fl-name">
                                 <label>標題</label>
@@ -158,9 +158,10 @@ mysqli_close($db); // 關閉伺服器連接
                             <textarea class="form-control" rows="3" name="content"></textarea>
                         </div>
                         <input type="submit" name="send" value="送出">
-                        <input type="reset" name="send" value="重置">
+                        <input type="reset" name="notsend" value="重置">
                         <?php echo $result ?>
                     </form>
+                    
                     <table class="workremind_output">
                     <thead>
                         <tr>
@@ -175,7 +176,14 @@ mysqli_close($db); // 關閉伺服器連接
                     </thead>
                     <tbody>
                         <?php
-                        show_work_remind();
+                        $db = @mysqli_connect("localhost", "root", "xxxg00w0");
+                        if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
+                        mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
+                        die("錯誤: 無法選擇資料庫!" . mysqli_error($db));
+                        $sql = "SELECT * FROM instruct";
+                        $rows = mysqli_query($db, $sql); // 執行SQL查詢              
+                        $num = mysqli_num_rows($rows); // 取得記錄數
+                        mysqli_close($db); // 關閉伺服器連接
                         if ($num > 0) { // 有記錄
                         // 顯示每一筆記錄  
                             for ($i = 0;$i < $num; $i++ ) {
@@ -187,8 +195,8 @@ mysqli_close($db); // 關閉伺服器連接
                                 echo "<td>" . $row[2] . "</td>";
                                 echo "<td>" . $row[3] . "</td>";
                                 echo "<td>" . $row[4] . "</td>";
-                                echo "<td>" . $row[5] . "</td>";
-                                echo "<td>" . $row[6] . "</td>";
+                                echo "<td>" . "</td>";
+                                echo "<td>" . "</td>";
                                 echo "</tr>";
                             }
                         }
