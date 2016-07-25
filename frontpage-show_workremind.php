@@ -2,7 +2,7 @@
 $error = ""; $result = ""; 
 if (isset($_POST["send"])) {  // 是否是表單送回
     $title = $_POST["title"];
-    $reciever = $_POST["reciever"];
+    $reciever = (int)$_POST["reciever"];
     $reciever_result="";
     switch ($reciever) {
             case 0:
@@ -35,24 +35,21 @@ if (isset($_POST["send"])) {  // 是否是表單送回
     }
     else { 
         if ($reciever_result=="0") // 欄位沒填
-        $error .= "受文者不可是空白<br/>";
-        else {
-            if ($type_result=="0")
-            $error .= "類型不可是空白<br/>";    
+        $error .= "受文者不可是空白<br/>";   
         else { // 表單處理
-        $db = @mysqli_connect("localhost", "root", "xxxg00w0");
+        $db = mysqli_connect("localhost", "root", "xxxg00w0");
         mysqli_select_db($db, "mirrorworld"); // 選擇資料庫
         $sql = "INSERT INTO instruct" .
         "(Title, Account_ID_Reciever, Type_ID, Delivery_Date, Content)" .
-        "VALUES ('$title', '$reciever_result', '$type_result', 'delivery_date', '$content')";
-    }
+        "VALUES ('$title', '$reciever_result', '$type_result', '$delivery_date', '$content')";
+        }
         if (!mysqli_query($db, $sql)) { // 執行SQL指令
             $result = "新增記錄失敗...<br/>" . mysqli_error($db);
         }
         else $result = "新增記錄成功...<br/>";
         mysqli_close($db); // 關閉連接         
-      }
-   }
+    }
+   
 }
 else {  // 初始表單欄位值
     $title = ""; $reciever = "";
@@ -176,7 +173,7 @@ mysqli_close($db); // 關閉伺服器連接
                     </thead>
                     <tbody>
                         <?php
-                        $db = @mysqli_connect("localhost", "root", "xxxg00w0");
+                        $db = mysqli_connect("localhost", "root", "xxxg00w0");
                         if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
                         mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
                         die("錯誤: 無法選擇資料庫!" . mysqli_error($db));
