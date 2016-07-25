@@ -42,10 +42,10 @@ if (isset($_POST["send"])) {  // 是否是表單送回
     }
     else { // 表單處理
         $db = mysqli_connect("localhost", "", "");
-        mysqli_select_db($db, ""); // 選擇資料庫
-        $sql = "INSERT INTO  " .
-        "() " .
-        "VALUES ()";
+        mysqli_select_db($db, "mirrorworld"); // 選擇資料庫
+        $sql = "INSERT INTO instruct" .
+        "(Title, Account_ID_Reciever, Type_ID, Delivery Date, Content)" .
+        "VALUES ('$title', '$reciever_result', '$type_result', 'delivery_date', '$content')";
         if (!mysqli_query($db, $sql)) { // 執行SQL指令
             $result = "新增記錄失敗...<br/>" . mysqli_error($db);
         }
@@ -62,9 +62,9 @@ else {  // 初始表單欄位值
 function show_work_remind(){
     $db = mysqli_connect("localhost", "", "");
 if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
-mysqli_select_db($db, "") or  // 選擇資料庫
+mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
     die("錯誤: 無法選擇資料庫!" . mysqli_error($db));
-$sql = "SELECT * FROM ";
+$sql = "SELECT * FROM instruct";
 $rows = mysqli_query($db, $sql); // 執行SQL查詢              
 $num = mysqli_num_rows($rows); // 取得記錄數
 mysqli_close($db); // 關閉伺服器連接
