@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name=description content="">
+    <meta name=author content="">
+    <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
+    <title>Add order</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel=stylesheet>
+    <link href="normalize.css" rel=stylesheet>
+    <link href="add_order.css" rel=stylesheet>
+</head>
+
+<body>
+    <div class="container">
+        <div id="order" class="order" style="width:100%;padding:10px 0px 10px 0px">
+            <form name="" method="" action="">
+                <table class="input_table">
+                    <thead>
+                        <tr>
+                            <th width="12%"></th>
+                            <th width="18%"></th>
+                            <th width="18%"></th>
+                            <th width="18%"></th>
+                            <th width="16%"></th>
+                            <th width="19%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>流水號</td>
+                        <td colspan="5">
+                        <label for="company">公司行號&單位</label> 
+                            <input type="text" name="info[company]" id="company" style="width:77%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <label for="name">姓名</label>
+                            <input type="text" name="info[name]" id="name" style="width:15%">
+                            <label for="height">身高</label>
+                            <input type="text" name="info[height]" id="height" style="width:10%">
+                            <label for="weight">體重</label>
+                            <input type="text" name="info[weight]" id="weight" style="width:10%">
+                            <label for="phone">電話</label> 
+                            <input type="text" name="info[phone]" id="phone" style="width:25%">
+                            <label for="male">性別</label>
+                            <label for="male">男</label>
+                            <input type="radio" name="sex" id="male" />
+                            <label for="female">女</label>
+                            <input type="radio" name="sex" id="female" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>各部人體尺寸</td>
+                        <td colspan="5">
+                        <label for="suit_fabric">西裝布版</label> 
+                            <input type="text" name="suit_fabric[]" id="suit_fabric" style="width:16%">
+                            <input type="text" name="suit_fabric[]" style="width:16%">
+                            <input type="text" name="suit_fabric[]" style="width:16%">
+                            <input type="text" name="suit_fabric[]" style="width:16%">
+                            <input type="text" name="suit_fabric[]" style="width:16%">
+                        </td>        
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="body_size[neck]" class="body_size" ">領圍</label><input type="text" name="body_size[neck]" id="body_size[neck]"" style="width:45%">
+                            </td>
+                        <td colspan="5">
+                        <label for="shirting_fabric">襯衫布版</label> 
+                            <input type="text" name="suiting_fabric[]" id="shirting_fabric" style="width:16%">
+                            <input type="text" name="shirting_fabric[]" style="width:16%">
+                            <input type="text" name="shirting_fabric[]" style="width:16%">
+                            <input type="text" name="shirting_fabric[]" style="width:16%">
+                            <input type="text" name="shirting_fabric[]" style="width:16%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="body_size[shoulder]" class="body_size">肩寬</label><input type="text" name="body_size[shoulder]" id="body_size[shoulder]" style="width:45%;">
+                        </td>
+                        <td>
+                            <label for="shirt">襯衫
+                            <input type="text" name="info[shirt]" id="shirt" style="width:45%;"> 號</label>
+                        </td>
+                        <td>
+                            <label for="jacket">外套
+                            <input type="text" name="info[jacket]" id="jacket" style="width:45%;"> 號</label>
+                        </td>
+                        <td>
+                            <label for="vest">背心
+                            <input type="text" name="info[vest]" id="vest" style="width:45%;"> 號</label>
+                        </td>
+                        <td>
+                            <label for="shirt">裙子
+                            <input type="text" name="info[shirt]" id="skirt" style="width:45%;"> 號</label>
+                        </td>
+                        <td>
+                            <label for="pant">褲子
+                            <input type="text" name="info[pant]" id="pant" style="width:45%;"> 號</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="body_size[upper_bust]" class="body_size">肩寬</label><input type="text" name="body_size[upper_bust]" id="body_size[upper_bust]" style="width:45%;">
+                        </td>
+                        <td>
+                            <input type="text" name="info[shirt]" id="skirt" style="width:45%;"> 號</label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="Mastfoot">
+        <!--置底文字-->
+        <p> Copyright© 2016 Mirrorworld Inc. Aii Rights Reserved. </p>
+    </div>
+</body>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+</html>

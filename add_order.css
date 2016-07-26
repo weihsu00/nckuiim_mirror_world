@@ -1,0 +1,85 @@
+/*基本架構*/
+
+* {
+	font-size: 16px;
+}
+html,body{
+	width:100%;
+	height:100%;
+	text-align: left;
+}
+
+body {
+	padding: 15px 0px 15px 0px;
+	flex-direction: column;
+	font-family: 新細明體;
+	overflow-x: hidden;
+}
+
+/*body內的部分*/
+.container{
+	display: flex;
+	height:100%;
+	width:990px;
+	align-items: flex-start;
+	flex-direction: column;
+	
+	
+
+}
+.order{
+	width: 95%;
+}
+.Innercover {
+	width: 100%;
+	
+}
+
+ul li{
+	display: inline;
+}
+/*請將css內容寫在其下之範圍內*/
+.input_table
+{
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 16px;
+	background-color: #ffffcc;
+}
+td,th{
+	border: 1px solid #000000;
+	padding-left: 5px;
+
+}
+label{
+	font-weight:300;
+	margin:0px;
+}
+.inline_column{
+	display: inline;
+}
+input[type="text"] {
+	height: 22px;
+}
+.body_size{
+	letter-spacing: 6px;
+	margin-right: 5px;
+}
+/*請將css內容寫在其上之範圍內*/
+
+/*Mastfoot*/
+.Mastfoot{
+    position: fixed;
+    bottom:0px;
+    background-color: #222;
+    width: 100%;
+    color:#FFFFFF;
+    text-align: center;
+
+}
+
+.Mastfoot p {
+	text-align: center; 
+	font-family: arial;
+	color:#ffffff;
+}
