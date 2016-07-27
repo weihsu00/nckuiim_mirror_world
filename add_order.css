@@ -41,14 +41,17 @@ ul li{
 /*請將css內容寫在其下之範圍內*/
 .input_table
 {
-	width: 100%;
+	width: 95%;
 	border-collapse: collapse;
 	font-size: 16px;
 	background-color: #ffffcc;
 }
 td,th{
+	height:22;
 	border: 1px solid #000000;
 	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 0px;
 
 }
 label{
@@ -59,16 +62,18 @@ label{
 	display: inline;
 }
 input[type="text"] {
-	height: 22px;
+	height: 20px;
 }
 .body_size{
-	letter-spacing: 6px;
+	letter-spacing: 12px;
 	margin-right: 5px;
 }
 /*請將css內容寫在其上之範圍內*/
 
 /*Mastfoot*/
 .Mastfoot{
+	
+	height: 11px;
     position: fixed;
     bottom:0px;
     background-color: #222;
@@ -82,4 +87,5 @@ input[type="text"] {
 	text-align: center; 
 	font-family: arial;
 	color:#ffffff;
+	font-size: 10px;
 }
