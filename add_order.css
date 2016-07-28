@@ -45,6 +45,7 @@ ul li{
 	border-collapse: collapse;
 	font-size: 16px;
 	background-color: #ffffcc;
+	table-layout: fixed;
 }
 td,th{
 	border: 1px solid #000000;
