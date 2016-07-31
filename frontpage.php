@@ -1,11 +1,9 @@
 <?php
-$msg ="";
-session_start();
+/*$msg ="";
+session_start(); // 啟用交談期
 if ($_SESSION["login_session"] != true) {
-    header("Location: homepage.php")
-}
-
-
+    header("Location: homepage.php");
+}*/
 $error = ""; $result = ""; 
 if (isset($_POST["send_remind"])) {  // 是否是表單送回
     $title = $_POST["title"];   // 取得表單欄位值
@@ -16,7 +14,7 @@ if (isset($_POST["send_remind"])) {  // 是否是表單送回
             $reciever_result = "0";  
             break;
         case 1:
-            $reciever_result = "1";
+            $reciever_result = "布織道";
             break;
     }
     $type = $_POST["type"];
@@ -26,12 +24,27 @@ if (isset($_POST["send_remind"])) {  // 是否是表單送回
             $type_result = "0";
             break;
         case 1:
-            $type_result = "1";
+            $type_result = "修改物件寄送";
             break;
+        case 2:
+            $type_result = "緊急事件";
+            break;
+        case 3:
+            $type_result = "訂單資料及相片";
+            break;
+        case 4:
+            $type_result = "文書檔案";
+            break;
+        case 5:
+            $type_result = "訂單更動通知";
+            break;
+        case 6:
+            $type_result = "其他";
+            break;
+
     }
     $delivery_date = $_POST["delivery_date"];
     $content = $_POST["content"];
-
     if (empty($title)) { //確認是否正確輸入資訊
         $error .= "請填入標題<br/>";
     }   else if ($reciever==0){
@@ -56,25 +69,12 @@ if (isset($_POST["send_remind"])) {  // 是否是表單送回
         mysqli_close($db);
     }
 }
-
 else {  // 初始表單欄位值
    $title = ""; $reciever_result = ""; $reciever = ""; $type_result = ""; $type = ""; 
    $delivery_date = ""; $content = ""; 
 } 
 
-function load_account(){
-    $db = mysqli_connect("localhost", "root", "xxxg00w0");
-    if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
-        mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
-            die("錯誤: 無法選擇資料庫!" . mysqli_error($db));
-        $sql = "SELECT * FROM account";
-        $rows_acc = mysqli_query($db, $sql); // 執行SQL查詢              
-        $num_acc = mysqli_num_rows($rows_acc); // 取得記錄數
-        mysqli_close($db); // 關閉伺服器連接
-}
-
-
-function create_remind(){
+function create_remind(){  //取出交辦事項資料
     $db = mysqli_connect("localhost", "root", "xxxg00w0");
     if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
         mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
@@ -87,11 +87,11 @@ function create_remind(){
         for ($i = 0; $i < $num; $i++ ) { // 新增表格並提取資料庫資料
             $row = mysqli_fetch_row($rows);
             echo "<tr>";
-            echo "<td onClick=show_hide_tr($row[0])> 內容</td>";
+            echo "<td onClick=show_hide_tr($row[0])> 待確認</td>";
             echo "<td onClick=show_hide_tr($row[0])> $row[1] </td>";
             echo "<td onClick=show_hide_tr($row[0])> $row[2] </td>";
             echo "<td onClick=show_hide_tr($row[0])> $row[3] </td>";
-            echo "<td onClick=show_hide_tr($row[0])> 內容</td>";
+            echo "<td onClick=show_hide_tr($row[0])> 一二三(四)</td>";
             echo "<td onClick=show_hide_tr($row[0])> $row[4] </td>";
             echo "</tr>";
             echo "<tr>";
@@ -169,7 +169,7 @@ mysqli_free_result($rows); // 釋放儲存的空間
     <!--標頭包含使用者資訊以及選單按鈕-->
     <div class="Head">
         <!--使用者資訊-->
-        <?php echo "歡迎！" . $_SESSION["username"] ?> 
+         
         <a href="">登出</a>
     </div>
     <div class="container">
@@ -211,10 +211,8 @@ mysqli_free_result($rows); // 釋放儲存的空間
                                 </div>
                                 <div>
                                     <select name="reciever" id="reciever">
-                                        <option value="0">請選擇受文者
-                                        </option>
-                                        <option value="1">1
-                                        </option>
+                                        <option value="0">請選擇受文者</option>
+                                        <option value="1">1</option>
                                     </select>
                                 </div>
                                 <div class="fl-name">
@@ -222,10 +220,13 @@ mysqli_free_result($rows); // 釋放儲存的空間
                                 </div>
                                 <div>
                                     <select name="type" id="type">
-                                        <option value="0">請選擇類型
-                                        </option>
-                                        <option value="1">1
-                                        </option>
+                                        <option value="0">請選擇類型</option>
+                                        <option value="1">修改物件寄送</option>
+                                        <option value="2">緊急事件</option>
+                                        <option value="3">訂單資料及相片</option>
+                                        <option value="4">文書檔案</option>
+                                        <option value="5">訂單更動通知</option>
+                                        <option value="6">其他</option>
                                     </select>
                                 </div>
                                 <div class="fl-name">
@@ -236,7 +237,7 @@ mysqli_free_result($rows); // 釋放儲存的空間
                                 </div>
                             </div>
                             <div>
-                                <p>內文</p>
+                                <p>內容：</p>
                                 <textarea class="form-control" rows="3" name="content" id="content"></textarea>
                             </div>
                             <input type="submit" name="send_remind" id="send_remind" value="送出"/>
