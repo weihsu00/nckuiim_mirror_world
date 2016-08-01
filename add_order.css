@@ -84,8 +84,8 @@ input[type="text"] {
 	justify-content: center;
 }
 .body_size{
-	letter-spacing: 12px;
-	margin-right: 2px;
+	letter-spacing: 10px;
+	margin-right: 0px;
 }
 .btn{
 	color: black;
