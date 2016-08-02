@@ -67,12 +67,18 @@ ul li{
 
 /*請將css內容寫在下面*/
 .Workremind{
-	padding-top: 100px;
+	padding-top: 50px;
 	margin: auto;
 	margin-top: 5px;
 	width: 1000px;
-	height: auto;
+	height: 315px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
+label {
+	font-size: 16px;
+}
+
 table{
 	border-collapse: collapse;
 }
@@ -128,8 +134,16 @@ thead tr :nth-child(6){
 	flex-direction: row;
 	justify-content: space-around;
 }
+p{
+	font-weight: bold;
+	font-size: 16px;
+}
 table.workremind_output{
 	margin: 5px;
+}
+#send_remind{
+	width: 100px;
+	font-size: 16px;
 }
 
 .Monthlytask {

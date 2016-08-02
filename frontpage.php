@@ -1,9 +1,9 @@
 <?php
-/*$msg ="";
+$msg ="";
 session_start(); // 啟用交談期
 if ($_SESSION["login_session"] != true) {
     header("Location: homepage.php");
-}*/
+}
 $error = ""; $result = ""; 
 if (isset($_POST["send_remind"])) {  // 是否是表單送回
     $title = $_POST["title"];   // 取得表單欄位值
@@ -169,7 +169,7 @@ mysqli_free_result($rows); // 釋放儲存的空間
     <!--標頭包含使用者資訊以及選單按鈕-->
     <div class="Head">
         <!--使用者資訊-->
-         
+        <?php echo $_SESSION["username"] . "您好！" ?>
         <a href="">登出</a>
     </div>
     <div class="container">
@@ -194,10 +194,11 @@ mysqli_free_result($rows); // 釋放儲存的空間
             <div class="Workremind">           
                 <h3>交辦事項
                     <input type="button" onclick=show_hide_tr(-1) value="新增">
+                    <div style="color: red; font-size: 16px;"><?php echo $error ?></div>
+                    <div style="font-size: 16px"><?php echo $result ?></div>
                 </h3>                
                 <div class="content">
                     <div class="Workremind_post" id="-1" abbr="0" style="display: none;">
-                        <div style="color: red"><?php echo $error ?></div>
                         <form id="instruct_form" class="form" name="workremind_form" action="" method="post">
                             <div class="fl-column1">
                                 <div class="fl-name">
@@ -240,10 +241,11 @@ mysqli_free_result($rows); // 釋放儲存的空間
                                 <p>內容：</p>
                                 <textarea class="form-control" rows="3" name="content" id="content"></textarea>
                             </div>
-                            <input type="submit" name="send_remind" id="send_remind" value="送出"/>
-                            <input type="reset" name="send_remind" id="send_remind" value="重置"/>
-                        </form>                    
-                        <?php echo $result ?>
+                            <div id="send_button">
+                            <input type="submit" name="send_remind" id="send_remind" value="送出">
+                            <input type="reset" name="send_remind" id="send_remind" value="重置">
+                            </div>
+                        </form>
                     </div>
                     
                     <table class="workremind_output">
