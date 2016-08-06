@@ -1,9 +1,9 @@
 <?php
-$msg ="";
+/*$msg ="";
 session_start(); // 啟用交談期
 if ($_SESSION["login_session"] != true) {
     header("Location: homepage.php");
-}
+}*/
 $error = ""; $result = ""; 
 if (isset($_POST["send_remind"])) {  // 是否是表單送回
     $title = $_POST["title"];   // 取得表單欄位值
@@ -79,7 +79,7 @@ function create_remind(){  //取出交辦事項資料
     if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
         mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
             die("錯誤: 無法選擇資料庫!" . mysqli_error($db));
-        $sql = "SELECT * FROM instruct";
+        $sql = "SELECT * FROM instruct ORDER BY ID DESC";
         $rows = mysqli_query($db, $sql); // 執行SQL查詢              
         $num = mysqli_num_rows($rows); // 取得記錄數
         mysqli_close($db); // 關閉伺服器連接
@@ -169,7 +169,7 @@ mysqli_free_result($rows); // 釋放儲存的空間
     <!--標頭包含使用者資訊以及選單按鈕-->
     <div class="Head">
         <!--使用者資訊-->
-        <?php echo $_SESSION["username"] . "您好！" ?>
+        <?php //echo $_SESSION["username"] . "您好！" ?>
         <a href="">登出</a>
     </div>
     <div class="container">
@@ -261,6 +261,9 @@ mysqli_free_result($rows); // 釋放儲存的空間
                     </thead>
                     <tbody>
                         <?php create_remind(); ?>
+                        <tr id="moreinfo">
+                            <td colspan="6"><a href="">觀看更多...</a></td>
+                        </tr>
                     </tbody>
                 </table>
                 </div>
@@ -268,13 +271,24 @@ mysqli_free_result($rows); // 釋放儲存的空間
             </div>
             <div class="Monthlytask">
                 <h3>每月目標</h3>
+                <div class="content">
+                    <table class="monthly_output">
+                        <thead>
+                            <tr>
+                                <td>職位</td>
+                                <td>已完成業績</td>
+                                <td>本月目標業績</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
         
     </div>
     <div class="Mastfoot">
             <!--置底文字-->
-            <p> Copyright© 2016 Mirrorworld Inc. Aii Rights Reserved. </p>
+            <p> Copyright© 2016 Mirrorworld Inc. All Rights Reserved. </p>
         </div>
 </body>
 <script src="http://code.jquery.com/jquery.js"></script>

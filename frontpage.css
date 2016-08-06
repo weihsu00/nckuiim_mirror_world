@@ -67,13 +67,13 @@ ul li{
 
 /*請將css內容寫在下面*/
 .Workremind{
-	padding-top: 50px;
+	padding-top: 275px;
 	margin: auto;
 	margin-top: 5px;
 	width: 1000px;
-	height: 315px;
-	overflow-y: auto;
+	height: 830px;
 	overflow-x: hidden;
+	overflow-y: auto;
 }
 label {
 	font-size: 16px;
@@ -94,24 +94,31 @@ td, th {
 td div {
 	font-size: 16px;
 }
-thead tr :nth-child(1){
+.workremind_output tr :nth-child(1){
 	width: 7%;
 }
-
-thead tr :nth-child(2){
+.workremind_output tr :nth-child(2){
 	width: 700px;
 }
-thead tr :nth-child(3){
+.workremind_output tr :nth-child(3){
 	width: 15%;
 }
-thead tr :nth-child(4){
+.workremind_output tr :nth-child(4){
 	width: 13%;
 }
-thead tr :nth-child(5){
+.workremind_output tr :nth-child(5){
 	width: 10%;
 }
-thead tr :nth-child(6){
+.workremind_output  tr :nth-child(6){
 	width: 10%;
+}
+
+#moreinfo td{
+	text-align: center;
+}
+
+#moreinfo td a{
+	font-size: 16px;
 }
 .content{
 	padding:20px;
@@ -153,6 +160,18 @@ table.workremind_output{
 	margin-bottom: 5px;
 	width: 1000px;
 	height: 340px;
+}
+.monthly_output tr :nth-child(1){
+	width: 200px;
+	text-align: center;
+}
+.monthly_output tr :nth-child(2){
+	width: 400px;
+	text-align: center;
+}
+.monthly_output tr :nth-child(3){
+	width: 400px;
+	text-align: center;
 }
 
 
