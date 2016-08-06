@@ -41,7 +41,6 @@ if (isset($_POST["send_remind"])) {  // 是否是表單送回
         case 6:
             $type_result = "其他";
             break;
-
     }
     $delivery_date = $_POST["delivery_date"];
     $content = $_POST["content"];
@@ -73,7 +72,6 @@ else {  // 初始表單欄位值
    $title = ""; $reciever_result = ""; $reciever = ""; $type_result = ""; $type = ""; 
    $delivery_date = ""; $content = ""; 
 } 
-
 function create_remind(){  //取出交辦事項資料
     $db = mysqli_connect("localhost", "root", "xxxg00w0");
     if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
@@ -84,7 +82,7 @@ function create_remind(){  //取出交辦事項資料
         $num = mysqli_num_rows($rows); // 取得記錄數
         mysqli_close($db); // 關閉伺服器連接
     if ($num > 0) { // 有記錄 
-        for ($i = 0; $i < $num; $i++ ) { // 新增表格並提取資料庫資料
+        for ($i = 0; $i < 10; $i++ ) { // 新增表格並提取資料庫資料
             $row = mysqli_fetch_row($rows);
             echo "<tr>";
             echo "<td onClick=show_hide_tr($row[0])> 待確認</td>";
@@ -96,8 +94,8 @@ function create_remind(){  //取出交辦事項資料
             echo "</tr>";
             echo "<tr>";
             // 隱藏的整個框架
-            echo "<td abbr=0 colspan=7 id=$row[0]td style=display:none> 
-                    <div id=$row[0] style=display:none >             
+            echo "<td abbr=0 colspan=6 id=$row[0]td style=display:none> 
+                    <div id=$row[0] style=display:none>
                     $row[5]
                     </div> 
                 </td>" ;
@@ -199,6 +197,9 @@ mysqli_free_result($rows); // 釋放儲存的空間
                 </h3>                
                 <div class="content">
                     <div class="Workremind_post" id="-1" abbr="0" style="display: none;">
+                    <div>
+                        <p><?php //echo "由 " . $_SESSION["username"] . " 所交辦的事項" ?></p>
+                    </div>
                         <form id="instruct_form" class="form" name="workremind_form" action="" method="post">
                             <div class="fl-column1">
                                 <div class="fl-name">
@@ -243,7 +244,7 @@ mysqli_free_result($rows); // 釋放儲存的空間
                             </div>
                             <div id="send_button">
                             <input type="submit" name="send_remind" id="send_remind" value="送出">
-                            <input type="reset" name="send_remind" id="send_remind" value="重置">
+                            <input type="reset" name="send_remind" id="send_remind"  onclick=show_hide_tr(-1) value="取消">
                             </div>
                         </form>
                     </div>
@@ -275,9 +276,9 @@ mysqli_free_result($rows); // 釋放儲存的空間
                     <table class="monthly_output">
                         <thead>
                             <tr>
-                                <td>職位</td>
-                                <td>已完成業績</td>
-                                <td>本月目標業績</td>
+                                <th>職位</th>
+                                <th>已完成業績</th>
+                                <th>本月目標業績</th>
                             </tr>
                         </thead>
                     </table>
