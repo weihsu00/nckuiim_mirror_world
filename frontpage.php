@@ -142,6 +142,10 @@ mysqli_free_result($rows); // 釋放儲存的空間
                minDate:"0"
                };
       $("#delivery_date").datepicker(opt);
+    $('#myTab a').click(function(e) {
+    e.preventDefault()
+    $(this).tab('show')
+})
       });
     
     //點整排來縮放的函式
@@ -158,6 +162,7 @@ mysqli_free_result($rows); // 釋放儲存的空間
             $("#"+R_num).slideToggle("fast" , function(){$("#"+R_num+"td").toggle()});
         }
     }
+
     </script>
 </head>
 
@@ -174,12 +179,12 @@ mysqli_free_result($rows); // 釋放儲存的空間
         <div class="Masthead">
             <!--選單按鈕-->
             <div class="menu_navbar">
-                <ul class="menu-navigation">
+                <ul class="menu_navigation">
                     <li class=""><a href="">首頁</a></li>
                     <li class=""><a href="">草稿匣</a></li>
                     <li class=""><a href="">待審匣</a></li>
                     <li class=""><a href="">送件匣</a></li>
-                    <li class=""><a href="">已到貨-尾款未收</li>
+                    <li class=""><a href="">已到貨-尾款未收</li></a>
                     <li class=""><a href="">已完成</a></li>
                     <li class=""><a href="">訂單統計</a></li>
                     <li class=""><a href="">列印功能</a></li>
@@ -189,87 +194,87 @@ mysqli_free_result($rows); // 釋放儲存的空間
         </div>
         <div class="Innercover">
             <!--交辦事項及每月目標-->
-            <div class="Workremind">           
-                <h3>交辦事項
-                    <input type="button" onclick=show_hide_tr(-1) value="新增">
-                    <div style="color: red; font-size: 16px;"><?php echo $error ?></div>
-                    <div style="font-size: 16px"><?php echo $result ?></div>
-                </h3>                
-                <div class="content">
-                    <div class="Workremind_post" id="-1" abbr="0" style="display: none;">
-                    <div>
-                        <p><?php //echo "由 " . $_SESSION["username"] . " 所交辦的事項" ?></p>
-                    </div>
-                        <form id="instruct_form" class="form" name="workremind_form" action="" method="post">
-                            <div class="fl-column1">
-                                <div class="fl-name">
-                                    <label>標題</label>
-                                </div>
-                                <div>
-                                    <input type="text" class="form-control" id="title"  name="title" placeholder="Text input">
-                                </div>
-                                <div class="fl-name">
-                                    <label>受文者</label>
-                                </div>
-                                <div>
-                                    <select name="reciever" id="reciever">
-                                        <option value="0">請選擇受文者</option>
-                                        <option value="1">1</option>
-                                    </select>
-                                </div>
-                                <div class="fl-name">
-                                    <label>類型</label>
-                                </div>
-                                <div>
-                                    <select name="type" id="type">
-                                        <option value="0">請選擇類型</option>
-                                        <option value="1">修改物件寄送</option>
-                                        <option value="2">緊急事件</option>
-                                        <option value="3">訂單資料及相片</option>
-                                        <option value="4">文書檔案</option>
-                                        <option value="5">訂單更動通知</option>
-                                        <option value="6">其他</option>
-                                    </select>
-                                </div>
-                                <div class="fl-name">
-                                    <label>指定完成日</label>
-                                </div>
-                                <div>
-                                    <input type="text" class="form-control" name="delivery_date" id="delivery_date">
-                                </div>
-                            </div>
-                            <div>
-                                <p>內容：</p>
-                                <textarea class="form-control" rows="3" name="content" id="content"></textarea>
-                            </div>
-                            <div id="send_button">
-                            <input type="submit" name="send_remind" id="send_remind" value="送出">
-                            <input type="reset" name="send_remind" id="send_remind"  onclick=show_hide_tr(-1) value="取消">
-                            </div>
-                        </form>
+            <div class="uppercover"></div>
+                <div role="tabpanel">
+                <!--navtab-->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">交辦任務</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">未完成之交辦任務</a></li>
+                    </ul>
+                        <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active Workremind" id="home">
+                            <input type="button" onclick=show_hide_tr(-1) value="新增">
+                            <div style="color: red; font-size: 16px;"><?php echo $error ?></div>
+                            <div style="font-size: 16px"><?php echo $result ?></div>
+                                    
+                                        <div class="Workremind_post">
+                                            <div>
+                                            <p><?php //echo "由 " . $_SESSION["username"] . " 所交辦的事項" ?></p>
+                                            </div>
+                                            <div id="-1" abbr="0" style="display: none;">
+                                                <form  id="instruct_form" class="form" name="workremind_form" action="" method="post">
+                                                    <div class="fl-col">
+                                                        <div></div>
+                                                        <div class="fl_row">
+                                                        <label>標題: </label>
+                                                        <input type="text" class="form-control" id="title"  name="title" style="width:120px;"><label>受文者</label>
+                                                        <select name="reciever" id="reciever">
+                                                        <option value="0">請選擇受文者</option>
+                                                        <option value="1">1</option>
+                                                        </select>
+                                                        <label>類型</label>
+                                                        <select name="type" id="type">
+                                                        <option value="0">請選擇類型</option>
+                                                        <option value="1">修改物件寄送</option>
+                                                        <option value="2">緊急事件</option>
+                                                        <option value="3">訂單資料及相片</option>
+                                                        <option value="4">文書檔案</option>
+                                                        <option value="5">訂單更動通知</option>
+                                                        <option value="6">其他</option>
+                                                        </select>
+                                                        <label>指定完成日</label>
+                                                        <input type="text" class="form-control" name="delivery_date" id="delivery_date" style="width:120px;">
+                                                        <p>內容：</p>
+                                                        <textarea class="form-control" rows="3" name="content" id="content"></textarea>
+                                                    </div>
+                                                    <div id="send_button">
+                                                    <input type="submit" name="send_remind" id="send_remind" value="送出">
+                                                    <input type="reset" name="send_remind" id="send_remind"  onclick=show_hide_tr(-1) value="取消">
+                                                    </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    
+                            <table class="workremind_output">
+                            <thead>
+                                <tr>
+                                    <th>狀態</th>
+                                    <th>主旨</th>
+                                    <th>類型</th>
+                                    <th>指定完成日</th>
+                                    <th>交待人</th>
+                                    <th>受文者</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php create_remind(); ?>
+                            <tr id="moreinfo">
+                                <td colspan="6"><a href="">觀看更多...</a></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">bbb</div>
                     </div>
                     
-                    <table class="workremind_output">
-                    <thead>
-                        <tr>
-                            <th>狀態</th>
-                            <th>主旨</th>
-                            <th>類型</th>
-                            <th>指定完成日</th>
-                            <th>交待人</th>
-                            <th>受文者</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php create_remind(); ?>
-                        <tr id="moreinfo">
-                            <td colspan="6"><a href="">觀看更多...</a></td>
-                        </tr>
-                    </tbody>
-                </table>
                 </div>
+        </div>
+
+            
+
                 
-            </div>
             <div class="Monthlytask">
                 <h3>每月目標</h3>
                 <div class="content">
