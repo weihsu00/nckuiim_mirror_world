@@ -85,7 +85,7 @@ function create_remind(){  //取出交辦事項資料
         for ($i = 0; $i < 10; $i++ ) { // 新增表格並提取資料庫資料
             $row = mysqli_fetch_row($rows);
             echo "<tr>";
-            echo "<td onClick=show_hide_tr($row[0])> 待確認</td>";
+            echo "<td id=firsttd onClick=show_hide_tr($row[0])> 待確認</td>";
             echo "<td onClick=show_hide_tr($row[0])> $row[1] </td>";
             echo "<td onClick=show_hide_tr($row[0])> $row[2] </td>";
             echo "<td onClick=show_hide_tr($row[0])> $row[3] </td>";

@@ -65,7 +65,7 @@ ul li{
 
 /*請將css內容寫在下面*/
 .Workremind{
-	padding-top: 275px;
+	padding-top: 200px;
 	margin: auto;
 	margin-top: 5px;
 	width: 1000px;
@@ -94,11 +94,12 @@ td, th {
 
 td div {
 	font-size: 16px;
+	width: 100%;
 }
 .workremind_output th{
 	background-color: #cdfecd;
 }
-.workremind_output tr :nth-child(1){
+.workremind_output tr #firsttd{
 	width: 8%;
 }
 .workremind_output tr :nth-child(2){
@@ -174,15 +175,15 @@ table.workremind_output{
 	height: 340px;
 }
 .monthly_output tr :nth-child(1){
-	width: 200px;
+	width: 175px;
 	text-align: center;
 }
 .monthly_output tr :nth-child(2){
-	width: 400px;
+	width: 350px;
 	text-align: center;
 }
 .monthly_output tr :nth-child(3){
-	width: 400px;
+	width: 350px;
 	text-align: center;
 }
 
