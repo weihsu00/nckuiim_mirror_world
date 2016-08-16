@@ -83,6 +83,9 @@ li{
 }
 
 /*請將css內容寫在下面*/
+.nav{
+	width: 990px;
+}
 .Workremind{
 	
 	margin: auto;

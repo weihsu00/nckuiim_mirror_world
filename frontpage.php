@@ -56,7 +56,7 @@ if (isset($_POST["send_remind"])) {  // 是否是表單送回
         $error .= "請輸入內文<br/>";
     }
     else{
-        $db = @mysqli_connect("localhost", "root", "xxxg00w0");
+        $db = @mysqli_connect("localhost", "dmark0425", "lusteve425");
         mysqli_select_db($db, "mirrorworld"); // 選擇資料庫
         $sql = "INSERT INTO instruct" .
         "(Title, Account_ID_Reciever, Type_ID, Delivery_date, Content)" .
@@ -73,7 +73,7 @@ else {  // 初始表單欄位值
    $delivery_date = ""; $content = ""; 
 } 
 function create_remind(){  //取出交辦事項資料
-    $db = mysqli_connect("localhost", "root", "xxxg00w0");
+    $db = mysqli_connect("localhost", "dmark0425", "lusteve425");
     if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
         mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
             die("錯誤: 無法選擇資料庫!" . mysqli_error($db));
@@ -198,12 +198,14 @@ mysqli_free_result($rows); // 釋放儲存的空間
                 <div role="tabpanel">
                 <!--navtab-->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">交辦任務</a></li>
+                        <li role="presentation" class="active"><a href="#instruct" aria-controls="instruct" role="tab" data-toggle="tab">交辦任務</a></li>
                         <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">未完成之交辦任務</a></li>
+                         <li role="presentation"><a href="#monthly_task" aria-controls="monthly_task" role="tab" data-toggle="tab">每月任務</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">重大公告事項</a></li>
                     </ul>
                         <!-- Tab panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active Workremind" id="home">
+                        <div role="tabpanel" class="tab-pane active Workremind" id="instruct">
                             <input type="button" onclick=show_hide_tr(-1) value="新增">
                             <div style="color: red; font-size: 16px;"><?php echo $error ?></div>
                             <div style="font-size: 16px"><?php echo $result ?></div>
@@ -267,30 +269,26 @@ mysqli_free_result($rows); // 釋放儲存的空間
                             </table>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">bbb</div>
-                    </div>
-                    
+                        <div role="tabpanel" class="tab-pane" id="monthly_task">
+                            <h3>每月目標</h3>
+                            <div class="content">
+                                <table class="monthly_output">
+                                    <thead>
+                                        <tr>
+                                            <th>職位</th>
+                                            <th>已完成業績</th>
+                                            <th>本月目標業績</th>
+                                        </tr>
+                                    </thead>
+                                    <table>
+                                    </table>
+                             </div>           
+                        </div>
+                         <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                    </div>                    
                 </div>
-        </div>
-
-            
-
-                
-            <div class="Monthlytask">
-                <h3>每月目標</h3>
-                <div class="content">
-                    <table class="monthly_output">
-                        <thead>
-                            <tr>
-                                <th>職位</th>
-                                <th>已完成業績</th>
-                                <th>本月目標業績</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-        </div>
-        
+            </div>                                   
+        </div>        
     </div>
     <div class="Mastfoot">
             <!--置底文字-->
