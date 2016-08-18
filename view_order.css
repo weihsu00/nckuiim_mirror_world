@@ -1,98 +1,202 @@
+* {
+	font-size: 12px;
+}
+html,body{
+	width:100%;
+	height:100%;
+	text-align: left;
+}
 
 body {
-	margin-top: 0px;
-	margin-left: 0px;
-	font-family: 新細明體;
-	}
-
-
-.Masthead {
-	border-bottom: black 2px solid;
-	position: fixed;
-	width: 100%;
-	margin-top: 0px;
-	height: 70px;
-	z-index: 1;
-	background-color: white;
+	flex-direction: column;
+	font-family: 微軟正黑體;
+	overflow-x: hidden;
 }
 
-
+/*body內的部分*/
 .Head {
-	border: gray 1px solid;
-	position:fixed;
-	text-align: right;
-	font-size: 12px;
-	width: 80%;
-	margin-top: 3px;
-	margin-left: 10%;
-	height: 15px;
-}
-
-
-.Menu {
-	border: gray 1px solid;
 	position: fixed;
-	padding-top: 5px;
-	width: 80%;
-	margin-top: 23px;
-	margin-left: 10%;
-	height:28px;
-}
-
-
-.Innercover {
-	border: black 2px solid; 
-	position:absolute;
-	margin-left: 10%;
-	margin-top: 85px;
-	width: 80%;
-	text-align:center;
-	padding-bottom: 20px;
-}
-
-
-.Innercover div {
-	border:gray 1px solid ;
-	height: 100%;
-	margin: 10px 3%;
-	padding: 10px;
-}
-
-
-.Form { 
-	border-collapse:collapse;
-	text-align: center; 
-	margin-left: 10%
-	width:80%;
-	border-collapse:collapse;
-}
-
-.Form th {
-	border:black 1px solid; 
-	text-align: center; 
-}
-
-
-.Form td{
-	border:black 1px solid;
-	padding:3px 5px 3px 5px; 
-}
-
-
-.Tool{
-	text-align: left;
-	padding:2px;
-}
-
-
-.Mastfoot {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	text-align: center;
-	font-family: arial;
-	color:white;
-	background-color: black;
 	width: 100%;
-	height: 17px;
+	height: 20px;
+	text-align: right;
+	margin:0px 5px 0px 5px;
+	border-bottom: 1px solid #006699;
+	margin:0;
+	background-color:#ffffff;
+}
+.Head a{
+	padding-right: 20px;
+}
+
+.container{
+	
+	height:100%;
+	width:1100px;
+}
+/*navbar*/
+.Masthead {
+	top: 20px;
+	position: fixed;	
+	width: 100%;
+	height: 53px;
+}
+.Masthead ul{
+	list-style-type: none;
+	margin:0;
+	padding: 0;
+	overflow:hidden;
+	background-color: #333;
+}
+.Masthead ul li{
+	float: left;
+	border-right: 1px solid #bbb;
+}
+.Masthead ul li a{
+	display: block;
+	color:white;
+	padding: 0.8em 1.25em 0.8em 1.25em;
+	text-align: center;
+	text-decoration: none;
+}
+.Masthead ul li a:hover{
+	background-color:#111;
+}
+.Masthead div{
+	font-family: 新細明體;
+}
+
+.menu_navbar{
+	height:53px;
+	width: 990px;
+}
+.Innercover {
+	width: 100%;	
+	background-color: #f8f8ff;
+}
+.uppercover{
+	height: 70px;
+}
+/*請將css內容寫在下面*/
+table{
+	border-collapse: collapse;
+	width: 100%
+}
+
+td, th {
+  border: 1px solid #999;
+  font-size: 18px;
+  padding: 0.4rem;
+  text-align: left;
+}
+th {
+	background-color: #d9d9d9;
+}
+
+a.s3d  {
+    clear: both;
+    
+    -webkit-border-radius:3px;
+       -moz-border-radius:3px;
+            border-radius:3px;
+            
+    -webkit-box-shadow:0 4px 5px rgba(0,0,0,.3);
+       -moz-box-shadow:0 4px 5px rgba(0,0,0,.3);
+            box-shadow:0 4px 5px rgba(0,0,0,.3);
+            
+    display: inline-block !important;
+    font: 700 20px/36px 'Arial', Helvetica, Clean, sans-serif;
+    height: 40px;
+    
+    margin-top: 5px;
+    margin-bottom: 8px;
+    padding: 3px 30px 2px ;
+    
+    vertical-align-align: center;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(255,255,255,.35);
+    width: 200px; }
+
+ a.btn_revised {
+    background: #80ccff;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(#80ccff), to(#4db8ff));
+    background: -moz-linear-gradient(#80ccff, #4db8ff);
+    background: linear-gradient(#80ccff, #4db8ff);
+    border-top: 1px solid #a1cdde;
+    color: rgba(25,45,55,.9); }
+    
+a.btn_revised:active {
+    background: #4586ae;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(#4586ae), to(#65acc8));
+    background: -moz-linear-gradient(#4586ae, #65acc8);
+    background: linear-gradient(#4586ae, #65acc8); }
+
+a.btn_add_order{
+    background: #cccccc;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(#cccccc), to(#b3b3b3));
+    background: -moz-linear-gradient(#cccccc, #b3b3b3);
+    background: linear-gradient(#cccccc, #b3b3b3);
+    border-top: 1px solid #a1cdde;
+    color: rgba(25,45,55,.9); }
+    
+a.btn_add_order:active {
+    background: #808080;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(#808080), to(#666666));
+    background: -moz-linear-gradient(#808080, #666666);
+    background: linear-gradient(#808080, #666666); }
+a.btn_submit {
+    background: #ff3333;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(#ff3333), to(#ff1a1a));
+    background: -moz-linear-gradient(#ff3333, #ff1a1a);
+    background: linear-gradient(#ff3333, #ff1a1a);
+    border-top: 1px solid #a1cdde;
+    color: rgba(25,45,55,.9); }
+    
+a.btn_submit:active {
+    background: #e60000;
+    background: -webkit-gradient(linear, 0 0, 0 0, from(#e60000), to(#b30000));
+    background: -moz-linear-gradient(#e60000, #b30000);
+    background: linear-gradient(#e60000, #b30000); }
+.glyphicon-pencil{
+	left:80px;
+}
+.glyphicon-plus{
+	left: 40px;
+}
+.glyphicon-arrow-right{
+	left: 20px;
+}
+
+th{
+	font-weight: 900;
+}
+
+input[type="checkbox"]{
+	width: 20px;
+	height:20px;
+
+}
+
+hr{
+	border-width: 1px;
+	border-color: #b3b3b3;
+}
+
+}
+/*Mastfoot*/
+.Mastfoot{
+    position: fixed;
+    bottom:0px;
+    background-color: #222;
+    height: 20px;
+    width: 100%;
+    color:#FFFFFF;
+    text-align: center;
+
+}
+
+.Mastfoot p {
+	text-align: center; 
+	font-family: arial;
+	color:#ffffff;
 }
