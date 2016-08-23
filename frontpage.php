@@ -56,7 +56,7 @@ if (isset($_POST["send_remind"])) {  // 是否是表單送回
         $error .= "請輸入內文<br/>";
     }
     else{
-        $db = @mysqli_connect("localhost", "dmark0425", "lusteve425");
+        $db = @mysqli_connect("localhost", "root", "xxxg00w0");
         mysqli_select_db($db, "mirrorworld"); // 選擇資料庫
         $sql = "INSERT INTO instruct" .
         "(Title, Account_ID_Reciever, Type_ID, Delivery_date, Content)" .
@@ -72,8 +72,18 @@ else {  // 初始表單欄位值
    $title = ""; $reciever_result = ""; $reciever = ""; $type_result = ""; $type = ""; 
    $delivery_date = ""; $content = ""; 
 } 
+
+//上傳檔案
+if (isset($_FILES['file']['name'])) {
+    $big5_name=iconv("UTF-8", "big5", $_FILES['file']['name']);//UTF-8轉BIG5讓電腦上顯示正常
+    $name=$_FILES['file']['name'];
+    $target_path="upload/" . $big5_name;
+    move_uploaded_file($_FILES['file']['tmp_name'], $target_path);//移動檔案位置
+}
+
+
 function create_remind(){  //取出交辦事項資料
-    $db = mysqli_connect("localhost", "dmark0425", "lusteve425");
+    $db = mysqli_connect("localhost", "root", "xxxg00w0");
     if (!$db) die("錯誤: 無法連接MySQL伺服器!" . mysqli_connect_error());
         mysqli_select_db($db, "mirrorworld") or  // 選擇資料庫
             die("錯誤: 無法選擇資料庫!" . mysqli_error($db));
@@ -96,8 +106,9 @@ function create_remind(){  //取出交辦事項資料
             // 隱藏的整個框架
             echo "<td abbr=0 colspan=6 id=$row[0]td style=display:none> 
                     <div id=$row[0] style=display:none>
-                    $row[5]
-                    </div> 
+                    $row[5]";
+                    
+            echo "</div> 
                 </td>" ;
             echo "</tr>";
         }
@@ -162,7 +173,6 @@ mysqli_free_result($rows); // 釋放儲存的空間
             $("#"+R_num).slideToggle("fast" , function(){$("#"+R_num+"td").toggle()});
         }
     }
-
     </script>
 </head>
 
@@ -206,7 +216,7 @@ mysqli_free_result($rows); // 釋放儲存的空間
                         <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active Workremind" id="instruct">
-                            <input type="button" onclick=show_hide_tr(-1) value="新增">
+                            <input type="button" onclick=show_hide_tr(-1) value="新增" id="add_new">
                             <div style="color: red; font-size: 16px;"><?php echo $error ?></div>
                             <div style="font-size: 16px"><?php echo $result ?></div>
                                     
@@ -215,7 +225,7 @@ mysqli_free_result($rows); // 釋放儲存的空間
                                             <p><?php //echo "由 " . $_SESSION["username"] . " 所交辦的事項" ?></p>
                                             </div>
                                             <div id="-1" abbr="0" style="display: none;">
-                                                <form  id="instruct_form" class="form" name="workremind_form" action="" method="post">
+                                                <form  id="instruct_form" class="form" name="workremind_form" action="" method="post" enctype="multipart/form-data">
                                                     <div class="fl-col">
                                                         <div></div>
                                                         <div class="fl_row">
@@ -241,8 +251,10 @@ mysqli_free_result($rows); // 釋放儲存的空間
                                                         <textarea class="form-control" rows="3" name="content" id="content"></textarea>
                                                     </div>
                                                     <div id="send_button">
-                                                    <input type="submit" name="send_remind" id="send_remind" value="送出">
+                                                    <input type="file" name="file" id="file" value="選擇檔案">
+                                                    <input type="submit" name="send_remind" id="send_remind" value="送出">                                        
                                                     <input type="reset" name="send_remind" id="send_remind"  onclick=show_hide_tr(-1) value="取消">
+                                                    
                                                     </div>
                                                     </div>
                                                 </form>
@@ -268,7 +280,13 @@ mysqli_free_result($rows); // 釋放儲存的空間
                             </tbody>
                             </table>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="profile">bbb</div>
+                        <!-- End of Workremind -->
+                        <div role="tabpanel" class="tab-pane" id="profile">bbb
+
+
+
+                        </div>
+                        <!-- End of profile -->
                         <div role="tabpanel" class="tab-pane" id="monthly_task">
                             <h3>每月目標</h3>
                             <div class="content">
@@ -284,7 +302,11 @@ mysqli_free_result($rows); // 釋放儲存的空間
                                     </table>
                              </div>           
                         </div>
-                         <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                        <!-- End of monthly task -->
+                         <div role="tabpanel" class="tab-pane" id="settings">...
+
+                         </div>
+                         <!-- End of settings -->
                     </div>                    
                 </div>
             </div>                                   

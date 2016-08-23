@@ -190,11 +190,20 @@ p{
 table.workremind_output{
 	margin: 5px;
 }
+
+#add_new{
+	width: 100px;
+	font-size: 16px;
+}
 #send_remind{
 	width: 100px;
 	font-size: 16px;
 }
-
+#file{
+	float: right;
+	width: 300px;
+	font-size: 16px;
+}
 .Monthlytask {
 	position: relative;
 	margin: auto;
